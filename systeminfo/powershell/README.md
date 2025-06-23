@@ -90,7 +90,7 @@ Trabalho híbrido com dois dias presenciais e uso de VPN nos demais. Em caso de 
 
 ## 🧪 Dica de Deploy
 
-Considere criar um **instalador MSI** para facilitar a distribuição em massa. Isso permite integração via **GPO**, **Microsoft Intune** ou outras soluções MDM, além de garantir consistência no deploy.
+Considere criar um **instalador MSI** ou **script bat** para facilitar a distribuição em massa. Isso permite integração via **GPO**, **Microsoft Intune** ou outras soluções MDM, além de garantir consistência no deploy.
 
 ```batch
 @echo off
