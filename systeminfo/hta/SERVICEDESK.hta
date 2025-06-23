@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Informações do Sistema</title>
+    <title>InformaÃ§Ãµes do Sistema</title>
     <hta:application 
         id="oApp"
         applicationname="SystemInfo"
@@ -10,7 +10,7 @@
         caption="yes"
         maximizebutton="no"
         minimizebutton="no"
-        ICON="%public%\documents\support.ico"
+        ICON="%public%\documents\support-2.ico"
         sysmenu="yes"
         scroll="no"
         singleinstance="yes"
@@ -42,26 +42,26 @@
 	
 	function copiarDados() {
 		var content = document.getElementById('content').innerText;
-		var macIndex = content.indexOf('Endereço MAC:');
+		var macIndex = content.indexOf('EndereÃ§o MAC:');
 		if (macIndex === -1) {
-			alert('Endereço MAC não encontrado no conteúdo.');
+			alert('EndereÃ§o MAC nÃ£o encontrado no conteÃºdo.');
 			return;
 		}
-		var dadosParaCopiar = content.substring(0, macIndex + 'Endereço MAC:'.length + 18); // 18 é o comprimento típico de um endereço MAC
+		var dadosParaCopiar = content.substring(0, macIndex + 'EndereÃ§o MAC:'.length + 18); // 18 Ã© o comprimento tÃ­pico de um endereÃ§o MAC
 		
 		try {
 			var clipboard = new ActiveXObject("htmlfile");
 			clipboard.parentWindow.clipboardData.setData("Text", dadosParaCopiar);
-			alert('Dados copiados para a área de transferência!');
+			alert('Dados copiados para a Ã¡rea de transferÃªncia!');
 		} catch (e) {
-			alert('Erro ao copiar dados para a área de transferência: ' + e.message);
+			alert('Erro ao copiar dados para a Ã¡rea de transferÃªncia: ' + e.message);
 		}
 	}
 	
     function enviar() {
         var content = document.getElementById('content').innerText;
-        var emailBody = content.split('Centro de Operações de TI')[0].replace(/^\s+|\s+$/g, '') + "\n\nDescreva aqui a sua solicitação:";
-        var mailtoLink = 'mailto:helpdesk@teste.com?subject=Informações do Sistema&body=' + encodeURIComponent(emailBody);
+        var emailBody = content.split('Centro de OperaÃ§Ãµes de TI')[0].replace(/^\s+|\s+$/g, '') + "\n\nDescreva aqui a sua solicitaÃ§Ã£o:";
+        var mailtoLink = 'mailto:helpdesk@teste.com?subject=InformaÃ§Ãµes do Sistema&body=' + encodeURIComponent(emailBody);
         window.location.href = mailtoLink;
     }
 
@@ -76,7 +76,7 @@
         var strLastBoot = lastBootDate.toLocaleString();
 		
         
-        // Obter informações do sistema
+        // Obter informaÃ§Ãµes do sistema
         var colSettings = objWMIService.ExecQuery("Select * from Win32_ComputerSystem");
         var objComputer = new Enumerator(colSettings).item();
         var strTotalMemory = objComputer.TotalPhysicalMemory;
@@ -87,9 +87,9 @@
 
         var colItems = objWMIService.ExecQuery("Select * from Win32_ComputerSystem");
         var objItem = new Enumerator(colItems).item();
-        var strCurrentUser = objItem.UserName || "Usuário não identificado";
+        var strCurrentUser = objItem.UserName || "UsuÃ¡rio nÃ£o identificado";
         
-        // Exibir apenas o nome do usuário sem o hostname
+        // Exibir apenas o nome do usuÃ¡rio sem o hostname
         if (strCurrentUser.indexOf("\\") !== -1) {
             strCurrentUser = strCurrentUser.split("\\")[1];
         }
@@ -98,8 +98,8 @@
 		var objNicItem = new Enumerator(NicItems).item();
 
 		if (!objNicItem) {
-			// Placa de rede não identificada, continue sem erro
-			var strmac = "Não disponível";
+			// Placa de rede nÃ£o identificada, continue sem erro
+			var strmac = "NÃ£o disponÃ­vel";
 			var strip = "Nenhum IP encontrado";
 		} else {
 			var strmac = objNicItem.MACAddress;
@@ -130,7 +130,7 @@
         } else if (strBuildNumber >= 26000) {
             strWindowsVersion = "24H2";
         } else {
-            strWindowsVersion = "Versão desconhecida";
+            strWindowsVersion = "VersÃ£o desconhecida";
         }
 
         var CpuItems = objWMIService.ExecQuery("Select * from Win32_Processor");
@@ -154,18 +154,18 @@
 
         var strUpTime = timeSpan(lastBootDate, new Date()) + " (hh:mm:ss)";
 
-        // Exibir informações
+        // Exibir informaÃ§Ãµes
         document.getElementById("computerName").innerText = strComputerName;
         document.getElementById("model").innerText = strModel;
         document.getElementById("currentUser").innerText = strCurrentUser;
         document.getElementById("memory").innerText = strMemoryMB + " / " + strMemoryGB;
         document.getElementById("mac").innerText = strmac;
         document.getElementById("ip").innerText = strip;
-        document.getElementById("cpu").innerText = strcpuName + "\n (" + strcores + " Cores, " + strlogical + " Processadores Lógicos)";
+        document.getElementById("cpu").innerText = strcpuName + "\n (" + strcores + " Cores, " + strlogical + " Processadores LÃ³gicos)";
         document.getElementById("os").innerText = strSO + " - " + strWindowsVersion;
         document.getElementById("lastBoot").innerText = strLastBoot;
         document.getElementById("upTime").innerText = strUpTime;
-        document.getElementById("serial").innerText = strSerial; // Adiciona o número de série da BIOS
+        document.getElementById("serial").innerText = strSerial; // Adiciona o nÃºmero de sÃ©rie da BIOS
 		checkLastBoot(lastBootDate);
     }
 
@@ -195,13 +195,13 @@
     }
     #logo {
         width: 100%;
-        max-width: 600px; /* Ajuste conforme necessário */
+        max-width: 600px; /* Ajuste conforme necessÃ¡rio */
         height: auto;
         display: block;
         margin: 0 auto;
     }
     #content {
-        margin-top: 20px; /* Ajuste a margem conforme necessário */
+        margin-top: 20px; /* Ajuste a margem conforme necessÃ¡rio */
         text-align: left;
     }
     button {
@@ -235,20 +235,20 @@
     </div>
     <div id="content">
         <br><span class="label">Nome do Computador:</span> <span id="computerName" class="result"></span>
-        <br><span class="label">Endereço IP:</span> <span id="ip"></span>
-        <br><span class="label">Usuário Atual:</span> <span id="currentUser"></span>
+        <br><span class="label">EndereÃ§o IP:</span> <span id="ip"></span>
+        <br><span class="label">UsuÃ¡rio Atual:</span> <span id="currentUser"></span>
         <hr>
         <span class="label">Modelo do Equipamento:</span> <span id="model"></span>
         <br><span class="label">Service Tag:</span> <span id="serial" class="result"></span>
         <br><span class="label">Processador:</span> <span id="cpu"></span>
-        <br><span class="label">Memória Total:</span> <span id="memory"></span>
+        <br><span class="label">MemÃ³ria Total:</span> <span id="memory"></span>
         <hr>
         <span class="label">Sistema Operacional:</span> <span id="os"></span>
-        <br><span class="label">Última Reinicialização:</span> <span id="lastBoot"></span>
+        <br><span class="label">Ãšltima ReinicializaÃ§Ã£o:</span> <span id="lastBoot"></span>
         <br><span class="label">Tempo de Atividade:</span> <span id="upTime"></span>
-        <br><span class="label">Endereço MAC:</span> <span id="mac"></span>
+        <br><span class="label">EndereÃ§o MAC:</span> <span id="mac"></span>
         <hr>
-        <br><span class="label">Centro de Operações de TI</span>
+        <br><span class="label">Centro de OperaÃ§Ãµes de TI</span>
         <br><span class="label">Telefone Externo:</span> <span class="result">+55(21) xxxx-xxxxx</span>
         <br><span class="label">VOIP:</span> <span class="result">yyyy-yyyy</span>
         <br><span class="label">E-Mail:</span> <span class="result">helpdesk@teste.com</span>
