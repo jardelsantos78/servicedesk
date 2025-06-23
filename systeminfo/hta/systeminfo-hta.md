@@ -16,6 +16,10 @@ Este utilitário desenvolvido em **HTML Application (HTA)** exibe informações 
 - Tempo de Atividade da Sessão (uptime)  
 - Informações de contato do Suporte Técnico (telefone, VOIP, e-mail, sistema de chamados)
 
+<p align="center">  
+  <kbd><img src="https://github.com/jardelsantos78/servicedesk/blob/main/assets/servicedesk-em-HTA.png" alt="Tela do script em execução" width="85%"></kbd>  
+</p>
+
 ### 📋 Recursos
 
 - **Interface amigável**: similar a formulários de help desk, sem linha de comando  
