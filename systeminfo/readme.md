@@ -189,6 +189,18 @@ O **SystemInfo.ps1** atua justamente nesse ponto crítico: permite ao próprio c
 > Caso sua infraestrutura possua restrições quanto à execução de scripts PowerShell, existe uma alternativa igualmente simples e funcional: uma solução desenvolvida com **HTA (HTML Application)**. Com um duplo clique, o colaborador poderá obter as informações da máquina sem exigir permissões elevadas ou dependências adicionais. Para saber mais, consulte [SystemInfo em HTA](hta/systeminfo-hta.md)
 ---
 
+## 📦 Downloads
+
+Seguem os pacotes compactados:
+
+🔹 [Baixar systeminfo-powershell.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/SystemInfo-Powershell.zip)  
+  Contém o script `.ps1`, imagens e ícone já prontos para deploy.
+
+🔹 [Baixar systeminfo-hta.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/hta/SystemInfo-HTA.ZIP)  
+  Versão alternativa em HTA (HTML Application) para ambientes restritivos ao PowerShell.
+
+---
+
 ## 📬 Contribua
 
 Sinta-se à vontade para abrir *issues*, enviar *pull requests* ou sugerir melhorias.  
