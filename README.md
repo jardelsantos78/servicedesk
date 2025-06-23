@@ -1,4 +1,6 @@
-![Banner do Projeto](./assets/banner-servicedesk.png)
+<p align="center">
+  <img src="./assets/banner-servicedesk.png" alt="Banner do Projeto" width="60%">
+</p>
 
 # 🛠️ Ferramentas para Suporte Corporativo
 
