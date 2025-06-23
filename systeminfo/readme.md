@@ -50,4 +50,4 @@ Este projeto é colaborativo!
 ---
 
 **Contato:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)  
-**Licença:** [MIT](LICENSE)
+**Licença:** [MIT](../LICENSE)
