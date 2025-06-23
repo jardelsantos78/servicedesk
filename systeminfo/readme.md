@@ -193,7 +193,7 @@ O **SystemInfo.ps1** atua justamente nesse ponto crítico: permite ao próprio c
 
 Seguem os pacotes compactados:
 
-🔹 [Baixar systeminfo-powershell.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/SystemInfo-Powershell.zip)  
+🔹 [Baixar systeminfo-powershell.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/powershell/SystemInfo-Powershell.zip)  
   Contém o script `.ps1`, imagens e ícone já prontos para deploy.
 
 🔹 [Baixar systeminfo-hta.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/hta/SystemInfo-HTA.ZIP)  
