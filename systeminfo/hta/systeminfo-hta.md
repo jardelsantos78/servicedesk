@@ -39,3 +39,14 @@ Este utilitário desenvolvido em **HTML Application (HTA)** exibe informações 
 
 ---
 
+## 📦 Downloads
+
+Seguem os pacotes compactados:
+
+🔹 [Baixar systeminfo-powershell.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/SystemInfo-Powershell.zip)  
+  Contém o script `.ps1`, imagens e ícone já prontos para deploy.
+
+🔹 [Baixar systeminfo-hta.zip](https://github.com/jardelsantos78/servicedesk/blob/main/systeminfo/hta/SystemInfo-HTA.ZIP)  
+  Versão alternativa em HTA (HTML Application) para ambientes restritivos ao PowerShell.
+
+---
