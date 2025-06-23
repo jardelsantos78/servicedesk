@@ -1,0 +1,264 @@
+<html>
+<head>
+    <title>Informações do Sistema</title>
+    <hta:application 
+        id="oApp"
+        applicationname="SystemInfo"
+        BORDER="dialog"
+        INNERBORDER="no"
+        borderstyle="normal"
+        caption="yes"
+        maximizebutton="no"
+        minimizebutton="no"
+        ICON="%public%\documents\support.ico"
+        sysmenu="yes"
+        scroll="no"
+        singleinstance="yes"
+        windowstate="normal"
+    />
+</head>
+<script type="text/javascript">
+	window.onload = function() {
+		document.body.style.fontSize = "90%"; // ou "smaller" ou "12px"
+		var width = 620;
+		var height = screen.availHeight * 0.9; // 90% da altura da tela
+		window.resizeTo(width, height);
+		window.moveTo((screen.availWidth - width) / 2, (screen.availHeight - height) / 2);
+		getSystemInfo();
+	};
+
+    function checkLastBoot(lastBootDate) {
+        var currentDate = new Date();
+        var timeDiff = currentDate - lastBootDate;
+        var daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        if (daysDiff > 10) {
+            document.getElementById("lastBoot").style.color = "red";
+        }
+    }
+
+    function onClickButtonCancel() {
+        window.close();
+    }
+	
+	function copiarDados() {
+		var content = document.getElementById('content').innerText;
+		var macIndex = content.indexOf('Endereço MAC:');
+		if (macIndex === -1) {
+			alert('Endereço MAC não encontrado no conteúdo.');
+			return;
+		}
+		var dadosParaCopiar = content.substring(0, macIndex + 'Endereço MAC:'.length + 18); // 18 é o comprimento típico de um endereço MAC
+		
+		try {
+			var clipboard = new ActiveXObject("htmlfile");
+			clipboard.parentWindow.clipboardData.setData("Text", dadosParaCopiar);
+			alert('Dados copiados para a área de transferência!');
+		} catch (e) {
+			alert('Erro ao copiar dados para a área de transferência: ' + e.message);
+		}
+	}
+	
+    function enviar() {
+        var content = document.getElementById('content').innerText;
+        var emailBody = content.split('Centro de Operações de TI')[0].replace(/^\s+|\s+$/g, '') + "\n\nDescreva aqui a sua solicitação:";
+        var mailtoLink = 'mailto:helpdesk@teste.com?subject=Informações do Sistema&body=' + encodeURIComponent(emailBody);
+        window.location.href = mailtoLink;
+    }
+
+    function getSystemInfo() {
+	    var strComputer = ".";
+        var objWMIService = GetObject("winmgmts:\\\\" + strComputer + "\\root\\cimv2");
+        var colOS = objWMIService.ExecQuery("SELECT * FROM Win32_OperatingSystem");
+        var objOS = new Enumerator(colOS).item();
+        var objWMIDateTime = new ActiveXObject("WbemScripting.SWbemDateTime");
+        objWMIDateTime.Value = objOS.LastBootUpTime;
+        var lastBootDate = new Date(objWMIDateTime.GetVarDate());
+        var strLastBoot = lastBootDate.toLocaleString();
+		
+        
+        // Obter informações do sistema
+        var colSettings = objWMIService.ExecQuery("Select * from Win32_ComputerSystem");
+        var objComputer = new Enumerator(colSettings).item();
+        var strTotalMemory = objComputer.TotalPhysicalMemory;
+        var strMemoryMB = Math.round(strTotalMemory / 1024 / 1024) + " MB";
+        var strMemoryGB = Math.round(strTotalMemory / 1024 / 1024 / 1024) + " GB";
+        var strComputerName = objComputer.Name;
+        var strModel = objComputer.Model;
+
+        var colItems = objWMIService.ExecQuery("Select * from Win32_ComputerSystem");
+        var objItem = new Enumerator(colItems).item();
+        var strCurrentUser = objItem.UserName || "Usuário não identificado";
+        
+        // Exibir apenas o nome do usuário sem o hostname
+        if (strCurrentUser.indexOf("\\") !== -1) {
+            strCurrentUser = strCurrentUser.split("\\")[1];
+        }
+		
+		var NicItems = objWMIService.ExecQuery("Select * from Win32_NetworkAdapterConfiguration WHERE IPEnabled = True");
+		var objNicItem = new Enumerator(NicItems).item();
+
+		if (!objNicItem) {
+			// Placa de rede não identificada, continue sem erro
+			var strmac = "Não disponível";
+			var strip = "Nenhum IP encontrado";
+		} else {
+			var strmac = objNicItem.MACAddress;
+			var strip = objNicItem.IPAddress(0);
+		}
+		
+		var ipElement = document.getElementById("ip");
+
+        if (strip === "nenhum IP encontrado") {
+            ipElement.className = "error";
+            ipElement.innerText = strip;
+        } else {
+            ipElement.className = "result";
+            ipElement.innerText = strip;
+        }		
+		
+        var colOS = objWMIService.ExecQuery("SELECT * FROM Win32_OperatingSystem");
+        var objOS = new Enumerator(colOS).item();
+        var strBuildNumber = objOS.BuildNumber;
+        var strWindowsVersion;
+        
+        if (strBuildNumber >= 19044 && strBuildNumber < 19045) {
+            strWindowsVersion = "21H2";
+        } else if (strBuildNumber >= 19045 && strBuildNumber < 22631) {
+            strWindowsVersion = "22H2";
+        } else if (strBuildNumber >= 22631 && strBuildNumber < 26000) {
+            strWindowsVersion = "23H2";
+        } else if (strBuildNumber >= 26000) {
+            strWindowsVersion = "24H2";
+        } else {
+            strWindowsVersion = "Versão desconhecida";
+        }
+
+        var CpuItems = objWMIService.ExecQuery("Select * from Win32_Processor");
+        var objCpuItem = new Enumerator(CpuItems).item();
+        var strcpuName = objCpuItem.Name;
+        var strcores = objCpuItem.NumberOfCores;
+        var strlogical = objCpuItem.NumberOfLogicalProcessors;
+
+        var colBIOS = objWMIService.ExecQuery("Select * from Win32_BIOS");
+        var objBIOS = new Enumerator(colBIOS).item();
+        var strSerial = objBIOS.SerialNumber;
+
+        var colOS = objWMIService.ExecQuery("SELECT * FROM Win32_OperatingSystem");
+        var objOS = new Enumerator(colOS).item();
+        var strSO = objOS.Caption;
+
+        var objWMIDateTime = new ActiveXObject("WbemScripting.SWbemDateTime");
+        objWMIDateTime.Value = objOS.LastBootUpTime;
+        var lastBootDate = new Date(objWMIDateTime.GetVarDate());
+        var strLastBoot = lastBootDate.toLocaleString();
+
+        var strUpTime = timeSpan(lastBootDate, new Date()) + " (hh:mm:ss)";
+
+        // Exibir informações
+        document.getElementById("computerName").innerText = strComputerName;
+        document.getElementById("model").innerText = strModel;
+        document.getElementById("currentUser").innerText = strCurrentUser;
+        document.getElementById("memory").innerText = strMemoryMB + " / " + strMemoryGB;
+        document.getElementById("mac").innerText = strmac;
+        document.getElementById("ip").innerText = strip;
+        document.getElementById("cpu").innerText = strcpuName + "\n (" + strcores + " Cores, " + strlogical + " Processadores Lógicos)";
+        document.getElementById("os").innerText = strSO + " - " + strWindowsVersion;
+        document.getElementById("lastBoot").innerText = strLastBoot;
+        document.getElementById("upTime").innerText = strUpTime;
+        document.getElementById("serial").innerText = strSerial; // Adiciona o número de série da BIOS
+		checkLastBoot(lastBootDate);
+    }
+
+    function timeSpan(dt1, dt2) {
+        if (!(dt1 instanceof Date) || !(dt2 instanceof Date)) {
+            return "00:00:00";
+        }
+
+        var diff = Math.abs(dt2 - dt1);
+        var strSeconds = Math.floor((diff / 1000) % 60);
+        var strMinutes = Math.floor((diff / (1000 * 60)) % 60);
+        var strHours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        var strDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        if (strHours < 10) strHours = "0" + strHours;
+        if (strMinutes < 10) strMinutes = "0" + strMinutes;
+        if (strSeconds < 10) strSeconds = "0" + strSeconds;
+
+        return (strDays > 0 ? strDays + "d " : "") + strHours + ":" + strMinutes + ":" + strSeconds;
+    }
+</script>
+
+<style>
+    body {
+        background-color: buttonface;
+        font-family: Tahoma;
+    }
+    #logo {
+        width: 100%;
+        max-width: 600px; /* Ajuste conforme necessário */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    #content {
+        margin-top: 20px; /* Ajuste a margem conforme necessário */
+        text-align: left;
+    }
+    button {
+        background-color: buttonface;
+    }
+    .label {
+        font-weight: bold;
+    }
+    .result {
+        color: darkblue;
+        font-weight: bold;
+    }
+    .error {
+        color: red;
+    }
+    #computerName, #ip {
+        font-size: larger;
+    }
+    #buttonContainer {
+        text-align: center;
+    }
+    #buttonContainer button {
+        display: inline-block;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+    <div id="logoContainer">
+        <img id="logo" src="C:\\USERS\\PUBLIC\\DOCUMENTS\\service-desk-ti.png" alt="Logo">
+    </div>
+    <div id="content">
+        <br><span class="label">Nome do Computador:</span> <span id="computerName" class="result"></span>
+        <br><span class="label">Endereço IP:</span> <span id="ip"></span>
+        <br><span class="label">Usuário Atual:</span> <span id="currentUser"></span>
+        <hr>
+        <span class="label">Modelo do Equipamento:</span> <span id="model"></span>
+        <br><span class="label">Service Tag:</span> <span id="serial" class="result"></span>
+        <br><span class="label">Processador:</span> <span id="cpu"></span>
+        <br><span class="label">Memória Total:</span> <span id="memory"></span>
+        <hr>
+        <span class="label">Sistema Operacional:</span> <span id="os"></span>
+        <br><span class="label">Última Reinicialização:</span> <span id="lastBoot"></span>
+        <br><span class="label">Tempo de Atividade:</span> <span id="upTime"></span>
+        <br><span class="label">Endereço MAC:</span> <span id="mac"></span>
+        <hr>
+        <br><span class="label">Centro de Operações de TI</span>
+        <br><span class="label">Telefone Externo:</span> <span class="result">+55(21) xxxx-xxxxx</span>
+        <br><span class="label">VOIP:</span> <span class="result">yyyy-yyyy</span>
+        <br><span class="label">E-Mail:</span> <span class="result">helpdesk@teste.com</span>
+        <br><span class="label">Chamados/Tickets:</span> <span class="result">https://www.glpi.com.br</a>
+    </div>
+    <div id="buttonContainer">
+        <br>
+        <button onclick="copiarDados()">Copiar</button>
+        <button onclick="enviar()">Enviar por E-Mail</button>
+        <button onclick="onClickButtonCancel()">Fechar</button>
+    </div>
+</body>
+</html>
