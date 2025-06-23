@@ -1,4 +1,6 @@
-# 🛠️ ServiceDesk - Ferramentas para Suporte Corporativo
+![Banner do Projeto](./assets/banner-servicedesk.png)
+
+# 🛠️ Ferramentas para Suporte Corporativo
 
 Este repositório foi criado com o objetivo de **compartilhar conhecimento prático** voltado à rotina de técnicos de suporte, analistas de TI e administradores de sistemas. Aqui você encontrará **scripts, automações e recursos** que podem ser aplicados em ambientes corporativos para:
 
