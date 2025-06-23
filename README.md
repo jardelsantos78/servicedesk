@@ -15,7 +15,7 @@ Este repositório foi criado com o objetivo de **compartilhar conhecimento prát
 
 | Pasta            | Descrição                                                                 |
 |------------------|---------------------------------------------------------------------------|
-| `SystemInfo/`    | Script PowerShell com interface gráfica para coleta de informações do sistema do usuário. Ideal para uso em atendimento remoto. |
+| [`SystemInfo/`](systeminfo/powerhsell/readme.md)    | Script PowerShell com interface gráfica para coleta de informações do sistema do usuário. Ideal para uso em atendimento remoto. |
 | `MDT/`           | Scripts e dicas relacionados ao **Microsoft Deployment Toolkit**, incluindo automações em imagens e pós-instalação. |
 | `WSUS/`          | Documentos e automações para gerenciamento de atualizações via **WSUS**, incluindo limpeza e boas práticas. |
 | `POS-IMAGEM/`    | Recursos para criação e manutenção de **imagens corporativas padronizadas**, focando em agilidade e consistência. |
