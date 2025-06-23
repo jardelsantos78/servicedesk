@@ -17,7 +17,7 @@ Este utilitário desenvolvido em **HTML Application (HTA)** exibe informações 
 - Informações de contato do Suporte Técnico (telefone, VOIP, e-mail, sistema de chamados)
 
 <p align="center">  
-  <kbd><img src="https://github.com/jardelsantos78/servicedesk/blob/main/assets/servicedesk-em-HTA.png" alt="Tela do script em execução" width="85%"></kbd>  
+  <kbd><img src="../../assets/servicedesk-em-HTA.png" alt="Tela do script em execução" width="85%"></kbd>  
 </p>
 
 ### 📋 Recursos
