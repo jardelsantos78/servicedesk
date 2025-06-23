@@ -23,7 +23,7 @@ A interface foi criada utilizando XAML com WPF via .NET e apresenta botões úte
 - **Fechar:** encerra a janela  
 
 <p align="center">  
-  <kbd><img src="../assets/servicedesk-em-powershell.png" alt="Tela do script em execução"></kbd>  
+  <kbd><img src="../../assets/servicedesk-em-powershell.png" alt="Tela do script em execução"></kbd>  
 </p>
 
 O código é totalmente personalizável. É possível, por exemplo, implementar uma lógica que identifique automaticamente a rede atual com base na VLAN detectada — permitindo classificar se o equipamento está conectado à **rede corporativa**, **rede VPN** ou **rede externa** (como no caso de conexões domésticas). Esse recurso pode ser útil para aplicar diferentes lógicas de suporte ou alertas de conformidade de acordo com o ambiente de rede.
@@ -186,7 +186,7 @@ O **SystemInfo.ps1** atua justamente nesse ponto crítico: permite ao próprio c
 ---
 
 > ⚠️ **Ambiente restrito ao PowerShell? Sem problemas!**  
-> Caso sua infraestrutura possua restrições quanto à execução de scripts PowerShell, existe uma alternativa igualmente simples e funcional: uma solução desenvolvida com **HTA (HTML Application)**. Com um duplo clique, o colaborador poderá obter as informações da máquina sem exigir permissões elevadas ou dependências adicionais. Para saber mais, consulte [SystemInfo em HTA](hta/systeminfo-hta.md)
+> Caso sua infraestrutura possua restrições quanto à execução de scripts PowerShell, existe uma alternativa igualmente simples e funcional: uma solução desenvolvida com **HTA (HTML Application)**. Com um duplo clique, o colaborador poderá obter as informações da máquina sem exigir permissões elevadas ou dependências adicionais. Para saber mais, consulte [SystemInfo em HTA](../hta/systeminfo-hta.md)
 ---
 
 ## 📦 Downloads
