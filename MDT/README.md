@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/em_construcao.png" alt="Repositório em construção" width="60%">
+  <img src="../assets/em_construcao.png" alt="Repositório em construção" width="60%">
 </p>
 
 # 📦 MDT - Microsoft Deployment Toolkit
