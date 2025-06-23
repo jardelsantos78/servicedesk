@@ -92,6 +92,77 @@ Trabalho híbrido com dois dias presenciais e uso de VPN nos demais. Em caso de 
 
 Considere criar um **instalador MSI** para facilitar a distribuição em massa. Isso permite integração via **GPO**, **Microsoft Intune** ou outras soluções MDM, além de garantir consistência no deploy.
 
+```batch
+@echo off
+setlocal ENABLEEXTENSIONS
+
+:: === Configurações ===
+set "SOURCE=\\SERVIDOR\TI\SystemInfo"
+set "DEST=C:\Users\Public\Documents\SystemInfo"
+set "DESKTOP_PUBLIC=C:\Users\Public\Desktop"
+set "SCRIPT=SystemInfo.ps1"
+set "ICON=support-2.ico"
+set "LOG_DIR=C:\ProgramData\SystemInfo\Logs"
+
+:: === Preparação ===
+set "TIMESTAMP=%date:~6,4%-%date:~3,2%-%date:~0,2%_%time:~0,2%%time:~3,2%%time:~6,2%"
+set "LOG_FILE=%LOG_DIR%\log-deploy-%TIMESTAMP%.txt"
+
+:: Remove espaços da variável de tempo
+set LOG_FILE=%LOG_FILE: =0%
+
+:: Cria pasta de log se não existir
+if not exist "%LOG_DIR%" (
+    mkdir "%LOG_DIR%"
+)
+
+echo ==== INÍCIO DO DEPLOY: %date% %time% ==== >> "%LOG_FILE%"
+
+:: Cria destino se necessário
+if not exist "%DEST%" (
+    mkdir "%DEST%" >> "%LOG_FILE%" 2>&1
+    echo [OK] Criada pasta de destino: %DEST% >> "%LOG_FILE%"
+)
+
+:: === Copiando arquivos com xcopy ===
+echo [INFO] Copiando arquivos de %SOURCE% para %DEST% >> "%LOG_FILE%"
+xcopy "%SOURCE%\*.*" "%DEST%\" /E /H /R /Y /C >> "%LOG_FILE%" 2>&1
+
+if %errorlevel% neq 0 (
+    echo [ERRO] Falha na cópia dos arquivos. >> "%LOG_FILE%"
+    goto FIM
+) else (
+    echo [OK] Arquivos copiados com sucesso. >> "%LOG_FILE%"
+)
+
+:: === Atributos ocultos ===
+attrib +h "%DEST%\%SCRIPT%" >> "%LOG_FILE%" 2>&1
+attrib +h "%DEST%\%ICON%" >> "%LOG_FILE%" 2>&1
+attrib +h "%DEST%\service-desk-ti.png" >> "%LOG_FILE%" 2>&1
+echo [OK] Atributos ocultos aplicados. >> "%LOG_FILE%"
+
+:: === Criando o atalho na Área de Trabalho Pública ===
+echo [INFO] Criando atalho >> "%LOG_FILE%"
+powershell -Command ^
+  "$WshShell = New-Object -ComObject WScript.Shell; ^
+   $Shortcut = $WshShell.CreateShortcut('%DESKTOP_PUBLIC%\SystemInfo.lnk'); ^
+   $Shortcut.TargetPath = 'powershell.exe'; ^
+   $Shortcut.Arguments = '-ExecutionPolicy Bypass -WindowStyle Hidden -File \"%DEST%\%SCRIPT%\"'; ^
+   $Shortcut.IconLocation = '%DEST%\%ICON%'; ^
+   $Shortcut.Save()" >> "%LOG_FILE%" 2>&1
+
+if exist "%DESKTOP_PUBLIC%\SystemInfo.lnk" (
+    echo [OK] Atalho criado com sucesso. >> "%LOG_FILE%"
+) else (
+    echo [ERRO] Falha ao criar o atalho. >> "%LOG_FILE%"
+)
+
+:FIM
+echo ==== FIM DO DEPLOY: %date% %time% ==== >> "%LOG_FILE%"
+endlocal
+exit /B
+```
+
 ---
 
 ## 📦 Versão
