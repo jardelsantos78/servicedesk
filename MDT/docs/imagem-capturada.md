@@ -74,3 +74,22 @@ sysprep /oobe /generalize /shutdown
 
 ---
 
+## ⚠️ Observações Importantes
+
+- Embora funcional, o processo de captura de imagem é praticamente **obsoleto** no cenário atual diante das soluções de automação de instalação de aplicativos como os recursos nativos no próprio MDT ou ferramentas mais avançadas de gerenciamento, como o **Microsoft Intune**.
+- A inclusão deste procedimento tem caráter **estritamente ilustrativo**, para contextualizar e facilitar a comparação com abordagens mais robustas que serão apresentadas ao longo deste repositório.
+
+---
+
+## 🤝 Contribuições
+
+Sinta-se à vontade para usar, adaptar e sugerir melhorias.  
+Este repositório é um ponto de troca de experiências entre profissionais de TI.
+
+> 🗓 Documento criado em: **24/06/2025**  
+> 💼 **Licença:** [MIT](../../LICENSE)  
+> 🙋‍♂️ **Autor:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)
+
+---
+
+[Voltar para MDT](../README.md) | [Voltar para a página principal](../../README.md)
