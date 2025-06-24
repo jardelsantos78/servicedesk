@@ -33,7 +33,18 @@ Este documento tem como objetivo passar algumas sugestões sobre o processo de i
 
 ---
 
-### 2. Associar à Task Sequence (opcional)
+💡 **Observação importante:**
+Quando a opção `SkipApplications=YES` está definida no CustomSettings.ini, a tela de seleção de aplicativos não será exibida durante o assistente do LiteTouch.
+> **Nota:** Se esta opção não fizer parte do seu CustomSettings.ini e a opção SkipTaskSequence estiver definida como NO, a tela de seleção de aplicativos será exibida durante o processo de Deploy.
+
+Nesse cenário, a instalação de aplicativos deve ser controlada por uma destas abordagens:
+- Via Task Sequence: Adicionando manualmente os passos de instalação na fase State Restore, utilizando a ação Install Application.
+- Via CustomSettings.ini: Definindo os aplicativos com:
+- Applications001=GUID → o app será pré-selecionado, mas ainda pode ser desmarcado (caso a UI estivesse visível).
+- MandatoryApplications001=GUID → o app será instalado obrigatoriamente, mesmo com a tela oculta.
+Essas alternativas garantem que os aplicativos corretos sejam implantados mesmo em ambientes de instalação silenciosa (zero-touch), mantendo consistência e previsibilidade no processo.
+
+### 2. Associar a instalação do aplicativo via Task Sequence
 
 1. Edite a Task Sequence desejada;
 2. Vá até a fase **State Restore**;
@@ -42,7 +53,33 @@ Este documento tem como objetivo passar algumas sugestões sobre o processo de i
 
 ---
 
-### 3. Validar em Ambiente de Testes
+### 3. Instalação Automática via CustomSettings.ini
+
+Em vez de adicionar manualmente o aplicativo à Task Sequence, é possível configurar sua instalação como **obrigatória** diretamente no arquivo `CustomSettings.ini`, utilizando o GUID do aplicativo.
+
+```ini
+[Default]
+MandatoryApplications001={GUID-DO-ADOBE-READER}
+```
+
+> Isso garante que o aplicativo seja instalado automaticamente durante o deploy, **sem a possibilidade de ser desmarcado** pelo usuário no assistente do MDT.
+
+Caso deseje que o aplicativo seja pré-selecionado, mas ainda possa ser desmarcado, utilize:
+
+```ini
+Applications001={GUID-DO-ADOBE-READER}
+```
+
+Para descobrir o GUID de um aplicativo:
+- No Deployment Workbench, clique com o botão direito no aplicativo;
+- Acesse **Propriedades > General**;
+- Copie o valor do campo **Application ID**.
+
+> 💡 Essa abordagem oferece maior controle e permite aplicar lógica condicional, como instalar determinados aplicativos apenas em notebooks, VMs ou equipamentos específicos.
+
+---
+
+### 4. Validar em Ambiente de Testes
 
 - Execute o deploy em uma VM de homologação;
 - Verifique se o Adobe Reader foi instalado corretamente e sem prompts;
