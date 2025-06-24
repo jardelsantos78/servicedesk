@@ -8,7 +8,7 @@ Este documento tem como objetivo passar algumas sugestões sobre o processo de i
 
 ### 1. Adicionar o Aplicativo ao MDT
 
-> 📌 Para exemplo, utilizaremos o [Adobe Acrobat Reader DC](https://get.adobe.com/br/reader/enterprise/) como referência, mas os passos apresentados são aplicáveis a qualquer outro aplicativo que permita instalação silenciosa, bastando ajustar os arquivos e os parâmetros de instalação conforme a necessidade do ambiente.  
+> 📌 Para esta documentação, utilizaremos o [Adobe Acrobat Reader DC](https://get.adobe.com/br/reader/enterprise/) como referência, mas os passos apresentados são aplicáveis a qualquer outro aplicativo que permita instalação silenciosa, bastando ajustar os arquivos e os parâmetros de instalação conforme a necessidade do ambiente.  
 
 1. Abra o **Deployment Workbench**;
 2. Navegue até `Deployment Share > Applications`;
