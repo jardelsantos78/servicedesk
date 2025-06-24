@@ -118,4 +118,4 @@ Este repositório é um ponto de troca de experiências entre profissionais de T
 
 ---
 
-[Voltar para a página principal](../../README.md)
+[Voltar para MDT](../README.md) | [Voltar para a página principal](../../README.md)
