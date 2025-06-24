@@ -167,7 +167,7 @@ Contém as configurações padrão aplicadas se nenhuma outra regra se encaixar.
 Entre elas, destaco:
 - **Senha de administrador (⚠️ cuidado!)**
 > - **EVITE** definir a senha de administrador diretamente no arquivo `CustomSettings.ini`. O método mais seguro e recomendável é configurar essa credencial durante a criação da `Task Sequence` (conforme imagem a seguir). Essa prática contribui significativamente para o cumprimento das diretrizes de segurança e compliance da organização.
-> - No arquivo `CustomSettings.ini` apresentado neste documento, a definição da senha de administrador foi mantida **intencionalmente** com o propósito de destacar este ponto crítico
+> - No arquivo `CustomSettings.ini` apresentado neste documento, a definição da senha de administrador foi mantida **intencionalmente** com o propósito de destacar este ponto crítico.
 
 <p align="center">  
   <kbd><img src="../imagens/MDT-ADMIN-PASSWORD.png" alt="Tela da Task Sequence Admin Password"></kbd>  
@@ -178,14 +178,14 @@ Entre elas, destaco:
 |-------|----------|
 | `OSInstall=Y` | Indica que o sistema operacional será instalado. |
 | `_SMSTSOrgName=SUPORTE TI` | Nome exibido durante o processo de implantação (branding corporativo). |
-| `_SMSTSPackageName=%TaskSequenceID% on %OSDComputername%` | Mostra dinamicamente o nome da Task Sequence e o computador alvo. |
+| `_SMSTSPackageName=%TaskSequenceID% on %OSDComputername%` | Mostra dinamicamente o nome da Task Sequence e o equipamento alvo. |
 | `SkipCapture=YES` | Oculta a etapa de captura de imagem personalizada. |
 | `SkipAdminPassword=YES` | Oculta o campo de senha de administrador no assistente. |
 | `AdminPassword=Teste@123` | Define a senha local do administrador. ⚠️ Uso apenas para demonstração/testes. |
 | `SkipDeploymentType=YES` | Pula a escolha entre nova instalação ou atualização. |
 | `SkipProductKey=YES` | O assistente ignora a inserção de chave de produto do Windows. |
 | `SkipComputerBackup=YES` | Não realiza backup dos arquivos existentes. |
-| `SkipBitLocker=YES` | Ignora a configuração do BitLocker. |
+| `SkipBitLocker=YES` | Ignora a configuração do BitLocker. 💡Tratarei esta opção em outro documento de forma mais detalhada.  |
 | `SkipComputerName=NO` | Permite que o técnico defina um nome de computador, se necessário. |
 | `SkipTaskSequence=NO` | Exibe a tela de seleção de Task Sequence para o usuário. |
 | `SkipUserData=YES` | Ignora o processo de migração de dados do usuário. |
