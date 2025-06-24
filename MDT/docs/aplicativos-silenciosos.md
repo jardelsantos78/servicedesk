@@ -54,7 +54,7 @@ Este documento tem como objetivo passar algumas sugestões sobre o processo de i
 
 Quando uma nova versão do Adobe Reader for lançada:
 
-1. **Baixe o novo instalador `.exe` do site oficial**;
+1. **Baixe o novo instalador do site oficial**;
 2. **No MDT**, substitua o instalador antigo:
    - Localize a pasta do aplicativo dentro do caminho `DeploymentShare$\Applications\NomeDoAplicativo`;
    - Substitua o arquivo antigo pelo novo, mantendo o mesmo nome (ex: `AcroRdrDC_MUI.exe`);
