@@ -1,8 +1,6 @@
 # 📦 Criação de Imagem Personalizada no MDT (`Sysprep and Capture`)
 
-## 🎯 Objetivo
-
-Permitir a criação de uma imagem `.WIM` personalizada que contenha os aplicativos corporativos, configurações de sistema, drivers e personalizações visuais, tornando o processo de implantação do Windows mais rápido, padronizado e eficiente.
+Este documento tem como objetivo orientar quanto ao processo para a criação de uma imagem `.WIM` personalizada contendo aplicativos corporativos, configurações de sistema, drivers e personalizações visuais, tornando o processo de implantação do Windows mais rápido, padronizado e eficiente.
 
 ---
 
