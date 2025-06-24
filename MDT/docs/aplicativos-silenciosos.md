@@ -40,8 +40,8 @@ Quando a opção `SkipApplications=YES` está definida no CustomSettings.ini, a 
 Nesse cenário, a instalação de aplicativos deve ser controlada por uma destas abordagens:
 - **Via Task Sequence:** Adicionando manualmente os passos de instalação na fase State Restore, utilizando a ação Install Application.
 - **Via CustomSettings.ini:** Definindo os aplicativos com:
-	- Applications001=GUID → o app será pré-selecionado, mas ainda pode ser desmarcado (caso a UI esteja visível).
-	- MandatoryApplications001=GUID → o app será instalado obrigatoriamente, mesmo com a tela oculta.  
+	- `Applications001=GUID` → o app será pré-selecionado, mas ainda pode ser desmarcado (caso a UI esteja visível).
+	- `MandatoryApplications001=GUID` → o app será instalado obrigatoriamente, mesmo com a tela oculta.  
  Essas alternativas garantem que os aplicativos corretos sejam implantados mesmo em ambientes de instalação silenciosa (zero-touch), mantendo consistência e previsibilidade no processo.
 
 ### 2. Associar a instalação do aplicativo via Task Sequence
