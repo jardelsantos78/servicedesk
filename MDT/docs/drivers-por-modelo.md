@@ -103,7 +103,7 @@ Esses dados serão utilizados pelas variáveis `%Make%` e `%Model%` no MDT.
 
 ## ✅ Conclusão
 
-Com estas configurações, o MDT **injetará somente os drivers correspondentes ao modelo de equipamento** durante o processo de deployment, otimizando o processo significativamente.
+Com estas configurações, o MDT **identificará o modelo do equipamento e injetará somente os drivers correspondentes** reduzindo de forma significativa o tempo no processo de deployment.
 
 ---
 
@@ -113,5 +113,15 @@ Com estas configurações, o MDT **injetará somente os drivers correspondentes 
 
 ---
 
+## 🤝 Contribuições
+
+Sinta-se à vontade para usar, adaptar e sugerir melhorias.  
+Este repositório é um ponto de troca de experiências entre profissionais de TI.
+
 > 🗓 Documento criado em: **24/06/2025**
-````
+> 💼 **Licença:** [MIT](../../LICENSE)  
+> 🙋‍♂️ **Autor:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)
+
+---
+
+[Voltar para a página principal](../../README.md)
