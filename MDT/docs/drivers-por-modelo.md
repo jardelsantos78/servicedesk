@@ -44,7 +44,7 @@ Esses dados serão utilizados pelas variáveis `%Make%` e `%Model%` no MDT.
 
 1. Clique com o botão direito **na pasta do fabricante/modelo desejado** em **Out-of-Box Drivers**;
 2. Selecione **Import Drivers**;
-3. Siga o assistente para importar os drivers específicos por modelo.
+3. Siga o assistente para importar os drivers específicos por modelo:
 <p align="center">  
   <kbd><img src="../imagens/DRIVER-POR-MODELO-01.png" alt="Tela Import Drivers do MDT"></kbd>  
 </p>
@@ -72,9 +72,9 @@ Esses dados serão utilizados pelas variáveis `%Make%` e `%Model%` no MDT.
 
 ### Configurando o Passo *Inject Drivers*
 
-1. Localize o passo **Inject Drivers**.
-2. Em *Choose a selection profile*, selecione **Nothing**.
-3. Marque: **Install only matching drivers from the selection profile**.
+1. Localize o passo **Inject Drivers**;
+2. Em *Choose a selection profile*, selecione **Nothing**;
+3. Marque: **Install only matching drivers from the selection profile**:
 <p align="center">  
   <kbd><img src="../imagens/DRIVER-POR-MODELO-04.png" alt="Tela Inject Drivers"></kbd>  
 </p>
@@ -84,9 +84,9 @@ Esses dados serão utilizados pelas variáveis `%Make%` e `%Model%` no MDT.
 
 ## 🔄 Passo 3: Atualizando o Deployment Share
 
-1. Clique com o botão direito em **MDT Deployment Share**.
-2. Selecione **Update Deployment Share**.
-3. Escolha a opção para gerar as imagens de boot atualizadas.
+1. Clique com o botão direito em **MDT Deployment Share**;
+2. Selecione **Update Deployment Share**;
+3. Escolha a opção para gerar as imagens de boot atualizadas:
   > **SEMPRE** que realizar a inclusão/atualização/exclusão de drivers, utilize a opção para gerar nova imagem de boot:
 <p align="center">  
   <kbd><img src="../imagens/DRIVER-POR-MODELO-05.png" alt="Tela Update Deployment Share"></kbd>  
