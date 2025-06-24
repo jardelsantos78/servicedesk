@@ -169,7 +169,9 @@ Entre os destaques:
 > - **EVITE** definir a senha de administrador diretamente no arquivo `CustomSettings.ini`. O método mais seguro e recomendável é configurar essa credencial durante a criação da `Task Sequence` (conforme imagem a seguir). Essa prática contribui significativamente para o cumprimento das diretrizes de segurança e compliance da organização.
 > - No arquivo `CustomSettings.ini` apresentado neste documento, a definição da senha de administrador foi mantida **intencionalmente** com o propósito de destacar este ponto crítico
 
-**ADICIONAR IMAGEM MDT-ADIM-PASSWORD**  
+<p align="center">  
+  <kbd><img src="../imagens/MDT-ADMIN-PASSWORD.png" alt="Tela da Task Sequence Admin Password"></kbd>  
+</p>
 
 - Nome automático do computador com base em prefixo e serial:
   ```ini
@@ -194,7 +196,6 @@ Entre os destaques:
 - Prefixos (`ComputerPrefix=`)
 - Nome da organização (`_SMSTSOrgName`)
 - Resolução, idioma do teclado, fuso horário
-- Senha local (se houver mudança controlada)
 
 ---
 
