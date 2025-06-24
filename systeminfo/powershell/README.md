@@ -206,7 +206,7 @@ Seguem os pacotes compactados:
 Sinta-se à vontade para usar, adaptar e sugerir melhorias.  
 Este repositório é um ponto de troca de experiências entre profissionais de TI.
 
-> 💼 **Licença:** [MIT](../LICENSE)  
+> 💼 **Licença:** [MIT](../../LICENSE)  
 > 🙋‍♂️ **Autor:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)
 
 ---
