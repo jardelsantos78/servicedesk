@@ -76,7 +76,7 @@ sysprep /oobe /generalize /shutdown
 
 ## ⚠️ Observações Importantes
 
-- Embora funcional, o processo de captura de imagem é praticamente **obsoleto** no cenário atual diante das soluções de automação de instalação de aplicativos como os recursos nativos no próprio MDT ou ferramentas mais avançadas de gerenciamento, como o **Microsoft Intune**.
+- Embora funcional, o processo de captura de imagem é praticamente **obsoleto** diante das soluções de automação de instalação de aplicativos como os recursos nativos no próprio MDT ou ferramentas mais avançadas de gerenciamento, como o **Microsoft Intune**.
 - A inclusão deste procedimento tem caráter **estritamente ilustrativo**, para contextualizar e facilitar a comparação com abordagens mais robustas que serão apresentadas ao longo deste repositório.
 
 ---
