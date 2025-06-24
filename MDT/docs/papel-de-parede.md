@@ -1,8 +1,6 @@
 # 🖼️ Definir Papel de Parede durante o Deploy
 
-## 🎯 Objetivo
-
-Customizar a identidade visual dos dispositivos durante o processo de implantação, definindo um papel de parede padrão por meio de scripts automatizados.
+Este documento tem como objetivo customizar a identidade visual dos dispositivos durante o processo de implantação, definindo um papel de parede padrão por meio de scripts automatizados.
 
 ---
 
