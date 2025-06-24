@@ -164,8 +164,8 @@ ComputerPrefix=NTB  ; para notebooks
 ### `Default`
 Contém as configurações padrão aplicadas se nenhuma outra regra se encaixar.
 
-Entre os destaques:
-- Senha de administrador (⚠️ cuidado!)
+Entre elas, destaco:
+- **Senha de administrador (⚠️ cuidado!)**
 > - **EVITE** definir a senha de administrador diretamente no arquivo `CustomSettings.ini`. O método mais seguro e recomendável é configurar essa credencial durante a criação da `Task Sequence` (conforme imagem a seguir). Essa prática contribui significativamente para o cumprimento das diretrizes de segurança e compliance da organização.
 > - No arquivo `CustomSettings.ini` apresentado neste documento, a definição da senha de administrador foi mantida **intencionalmente** com o propósito de destacar este ponto crítico
 
@@ -173,12 +173,39 @@ Entre os destaques:
   <kbd><img src="../imagens/MDT-ADMIN-PASSWORD.png" alt="Tela da Task Sequence Admin Password"></kbd>  
 </p>
 
-- Nome automático do computador com base em prefixo e serial:
-  ```ini
-  OSDComputerName=%ComputerPrefix%-%ComputerSerialNumber%
-  ```
-- Localização, resolução de tela, nome da organização
-- Logs e ações pós-instalação
+
+| Linha | Descrição |
+|-------|----------|
+| `OSInstall=Y` | Indica que o sistema operacional será instalado. |
+| `_SMSTSOrgName=SUPORTE TI` | Nome exibido durante o processo de implantação (branding corporativo). |
+| `_SMSTSPackageName=%TaskSequenceID% on %OSDComputername%` | Mostra dinamicamente o nome da Task Sequence e o computador alvo. |
+| `SkipCapture=YES` | Oculta a etapa de captura de imagem personalizada. |
+| `SkipAdminPassword=YES` | Oculta o campo de senha de administrador no assistente. |
+| `AdminPassword=Teste@123` | Define a senha local do administrador. ⚠️ Uso apenas para demonstração/testes. |
+| `SkipDeploymentType=YES` | Pula a escolha entre nova instalação ou atualização. |
+| `SkipProductKey=YES` | O assistente ignora a inserção de chave de produto do Windows. |
+| `SkipComputerBackup=YES` | Não realiza backup dos arquivos existentes. |
+| `SkipBitLocker=YES` | Ignora a configuração do BitLocker. |
+| `SkipComputerName=NO` | Permite que o técnico defina um nome de computador, se necessário. |
+| `SkipTaskSequence=NO` | Exibe a tela de seleção de Task Sequence para o usuário. |
+| `SkipUserData=YES` | Ignora o processo de migração de dados do usuário. |
+| `OSDComputerName=%ComputerPrefix%-%ComputerSerialNumber%` | Define o nome do computador automaticamente, combinando prefixo e sufixo definidos por regras. |
+| `SkipPackageDisplay=NO` | Mostra pacotes adicionais (se configurados). |
+| `SkipLocaleSelection=NO` | Permite escolha de idioma/localização. |
+| `KeyboardLocale=0416:00010416` | Define o layout do teclado para Português Brasil (ABNT2). |
+| `SkipTimeZone=YES` | Ignora a seleção de fuso horário. |
+| `TimeZone=065` | Código para "E. South America Standard Time". |
+| `TimeZoneName=E. South America Standard Time` | Nome do fuso horário usado para exibição e logs. |
+| `BitsPerPel=32` | Profundidade de cor da tela: 32 bits. |
+| `VRefresh=60` | Frequência de atualização da tela: 60 Hz. |
+| `XResolution=1` / `YResolution=1` | Valor `1` indica que será usada a resolução nativa do monitor. |
+| `SkipSummary=YES` | Oculta o resumo das configurações antes da instalação. |
+| `SkipFinalSummary=NO` | Exibe o resumo final após a conclusão da instalação. |
+| `SLShareDynamicLogging=\\SRV-2025-RJ\deploymentshare$\DeploymentLogs` | Caminho de rede para os logs gerados em tempo real durante a implantação. |
+| `SLShare=\\SRV-2025-RJ\deploymentshare$\CompletedDeployments` | Pasta de destino para os logs finais após a instalação. |
+| `EventService=http://SRV-2025-RJ:9800` | Endereço do serviço de eventos do MDT, útil para monitoramento em tempo real. |
+| `WSUSServer=http://SRV-2025-RJ:8530` | Define o servidor WSUS usado para atualizações. |
+| `FinishAction=REBOOT` | Reinicia automaticamente a máquina após finalizar a Task Sequence. |
 
 ---
 
