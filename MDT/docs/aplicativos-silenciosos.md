@@ -35,14 +35,14 @@ Este documento tem como objetivo passar algumas sugestões sobre o processo de i
 
 ❗ **Atenção:**
 Quando a opção `SkipApplications=YES` está definida no CustomSettings.ini, a tela de seleção de aplicativos não será exibida durante o assistente do LiteTouch.
-> Se esta opção não fizer parte do seu CustomSettings.ini e a opção SkipTaskSequence estiver definida como NO, a tela de seleção de aplicativos será exibida durante o processo de Deploy.
+> Se esta opção não fizer parte do seu CustomSettings.ini e a opção SkipTaskSequence estiver definida como NO, a tela de seleção de aplicativos será exibida normalmente como uma das etapas do processo de Deploy.
 
 Nesse cenário, a instalação de aplicativos deve ser controlada por uma destas abordagens:
-- Via Task Sequence: Adicionando manualmente os passos de instalação na fase State Restore, utilizando a ação Install Application.
-- Via CustomSettings.ini: Definindo os aplicativos com:
-- Applications001=GUID → o app será pré-selecionado, mas ainda pode ser desmarcado (caso a UI estivesse visível).
-- MandatoryApplications001=GUID → o app será instalado obrigatoriamente, mesmo com a tela oculta.
-Essas alternativas garantem que os aplicativos corretos sejam implantados mesmo em ambientes de instalação silenciosa (zero-touch), mantendo consistência e previsibilidade no processo.
+- **Via Task Sequence:** Adicionando manualmente os passos de instalação na fase State Restore, utilizando a ação Install Application.
+- **Via CustomSettings.ini:** Definindo os aplicativos com:
+	- Applications001=GUID → o app será pré-selecionado, mas ainda pode ser desmarcado (caso a UI esteja visível).
+	- MandatoryApplications001=GUID → o app será instalado obrigatoriamente, mesmo com a tela oculta.  
+ Essas alternativas garantem que os aplicativos corretos sejam implantados mesmo em ambientes de instalação silenciosa (zero-touch), mantendo consistência e previsibilidade no processo.
 
 ### 2. Associar a instalação do aplicativo via Task Sequence
 
