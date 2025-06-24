@@ -54,3 +54,17 @@ Seguem os pacotes compactados:
   Versão alternativa em HTA (HTML Application) para ambientes restritivos ao PowerShell.
 
 ---
+
+
+## 🤝 Contribuições
+
+Sinta-se à vontade para usar, adaptar e sugerir melhorias.  
+Este repositório é um ponto de troca de experiências entre profissionais de TI.
+
+> 💼 **Licença:** [MIT](../LICENSE)  
+> 🙋‍♂️ **Autor:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)
+
+---
+
+[Voltar para versão PowerShell](../powershell/README.md)
+
