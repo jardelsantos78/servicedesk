@@ -107,12 +107,6 @@ Com estas configurações, o MDT **identificará o modelo do equipamento e injet
 
 ---
 
-## 📚 Referências
-
-- [Documentação Oficial do Microsoft Deployment Toolkit](https://docs.microsoft.com/en-us/microsoft-deployment-toolkit/)
-
----
-
 ## 🤝 Contribuições
 
 Sinta-se à vontade para usar, adaptar e sugerir melhorias.  
