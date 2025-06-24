@@ -201,14 +201,14 @@ Seguem os pacotes compactados:
 
 ---
 
-## 📬 Contribua
+## 🤝 Contribuições
 
-Sinta-se à vontade para abrir *issues*, enviar *pull requests* ou sugerir melhorias.  
-Este projeto é colaborativo!
+Sinta-se à vontade para usar, adaptar e sugerir melhorias.  
+Este repositório é um ponto de troca de experiências entre profissionais de TI.
 
----
-
-**Contato:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)  
-**Licença:** [MIT](../LICENSE)
+> 💼 **Licença:** [MIT](../LICENSE)  
+> 🙋‍♂️ **Autor:** [Jardel Santos](https://www.linkedin.com/in/jardel-santos-2012)
 
 ---
+
+[Voltar para a página principal](../README.md)
