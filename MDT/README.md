@@ -18,6 +18,7 @@ Este espaço foi criado para centralizar recursos práticos usados em ambientes 
 ## Conteúdo
 
 ### 🚀 Deploy & Otimização
+- [Monte um CustomSettings.ini eficiente](docs/custom-settings.md)
 - [Organização de Drivers por Fabricante e Modelo](docs/drivers-por-modelo.md)
 - [Instalação Silenciosa de Aplicativos via MDT](docs/aplicativos-silenciosos.md)
 - [Definir Papel de Parede e Tela de Bloqueio no Deploy](docs/papel-de-parede.md)
