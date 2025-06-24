@@ -21,7 +21,7 @@ Este espaço foi criado para centralizar recursos práticos usados em ambientes 
 - [Monte um CustomSettings.ini eficiente](docs/custom-settings.md)
 - [Configuração de Drivers por Modelo e Fabricante](docs/drivers-por-modelo.md)
 - [Instalação Silenciosa de Aplicativos via MDT](docs/aplicativos-silenciosos.md)
-- [Definir Papel de Parede e Tela de Bloqueio no Deploy](docs/papel-de-parede.md)
+- [Definir Papel de Parede durante o Deploy](docs/papel-de-parede.md)
 - [Criação de Imagem Personalizada (Capture)](docs/imagem-capturada.md)
 
 ### 🔐 Segurança e Compliance
