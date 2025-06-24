@@ -33,9 +33,9 @@ Este documento tem como objetivo passar algumas sugestões sobre o processo de i
 
 ---
 
-💡 **Observação importante:**
+❗ **Atenção:**
 Quando a opção `SkipApplications=YES` está definida no CustomSettings.ini, a tela de seleção de aplicativos não será exibida durante o assistente do LiteTouch.
-> **Nota:** Se esta opção não fizer parte do seu CustomSettings.ini e a opção SkipTaskSequence estiver definida como NO, a tela de seleção de aplicativos será exibida durante o processo de Deploy.
+> Se esta opção não fizer parte do seu CustomSettings.ini e a opção SkipTaskSequence estiver definida como NO, a tela de seleção de aplicativos será exibida durante o processo de Deploy.
 
 Nesse cenário, a instalação de aplicativos deve ser controlada por uma destas abordagens:
 - Via Task Sequence: Adicionando manualmente os passos de instalação na fase State Restore, utilizando a ação Install Application.
