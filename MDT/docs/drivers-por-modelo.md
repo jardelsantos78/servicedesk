@@ -1,4 +1,4 @@
-# Configuração de Drivers por Modelo e Fabricante no MDT
+# Configuração de Drivers no MDT por Modelo e Fabricante
 
 Este documento tem como objetivo auxiliar profissionais de TI na configuração do **Microsoft Deployment Toolkit (MDT)** para injetar drivers específicos durante a implantação do sistema operacional, utilizando filtragem por **fabricante** e **modelo** do equipamento reduzindo o tempo de preparo do equipamento com uma automação mais assertiva.
 
