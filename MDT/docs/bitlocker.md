@@ -75,6 +75,32 @@ manage-bde -status C:
 
 ---
 
+# 🧾 Comparativo: Ativação do BitLocker — MDT vs GPO
+
+Abaixo segue tabela comparativa das principais diferenças entre ativar o BitLocker durante o processo de deploy (via MDT) e utilizar políticas de grupo (GPO) após o ingresso da máquina no domínio.
+
+| Critério                            | Via MDT/SCCM                                             | Via GPO                                                  |
+|-------------------------------------|----------------------------------------------------------|-----------------------------------------------------------|
+| **Momento da ativação**             | Durante ou ao final do deploy                            | Após ingresso no domínio e aplicação da GPO              |
+| **Tempo sem proteção do disco**     | Nenhum – criptografia pode ocorrer antes do primeiro boot| Pode haver uma janela onde o disco está descriptografado |
+| **Controle de ativação**            | Total — ativação explícita na Task Sequence              | GPO define a política, mas depende da aplicação da GPO   |
+| **Complexidade de configuração**    | Moderada – envolve particionamento, TPM e passo específico| Simples – basta aplicar a GPO correta ao OU               |
+| **Armazenamento da chave**          | Pode ser configurado para salvar no AD ou localmente     | Armazenamento automático no AD (com GPO configurada)     |
+| **Pré-requisitos de hardware**      | Partição do sistema, TPM habilitado e UEFI ativo         | Os mesmos – mas aplicados posteriormente                 |
+| **Visibilidade e logs**             | Integração com logs da Task Sequence                     | Visível apenas via Event Viewer e gerenciamento do AD    |
+| **Resiliência em ambientes híbridos** | Requer adaptação para Azure AD/Intune                   | Suporte nativo via Microsoft Entra ID                    |
+| **Indicado para**                   | Ambientes com deploy controlado e segurança crítica      | Ambientes com GPOs maduras e foco em escalabilidade      |
+
+---
+
+## 🎯 Recomendação Híbrida
+
+A melhor estratégia pode ser combinada:
+- Ativar o BitLocker **durante o deploy via MDT**, garantindo proteção imediata;
+- Utilizar a **GPO como reforço** para monitoramento, reativação e padronização contínua.
+
+---
+
 ## 📋 Boas Práticas
 
 - Use o passo “Enable BitLocker” após todos os drivers críticos estarem instalados;
